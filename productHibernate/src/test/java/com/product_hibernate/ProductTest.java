@@ -19,16 +19,16 @@ public class ProductTest {
 		emf = Persistence.createEntityManagerFactory("postgres");
 	}
 	@BeforeEach
-	public void initEm() {
+	public void initEm() { 
 		em=emf.createEntityManager();
-	}
+	} 
 	@Test
 	public void insertProductTest() {
 		ProductDao dao = new ProductDao();
 		Product pro = new Product();
-		pro.setId(2);
-		pro.setName("Pencil");
-		pro.setPrice(50);
+		pro.setId(22);
+		pro.setName("Pencil-Pen");
+		pro.setPrice(502);
 		pro.setQuantity(10);
 		dao.insertProduct(pro);
 	}

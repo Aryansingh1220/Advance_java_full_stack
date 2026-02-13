@@ -8,15 +8,15 @@ public class ProductDao {
     private static EntityManager em = emf.createEntityManager();
 
     public void insertProduct(Product p) {
-
+ 
         EntityTransaction et = em.getTransaction();
 
-        et.begin();
+        et.begin(); 
         em.persist(p); 
         et.commit();
     }
 
-    public Product findById(int id) {
+    public Product findById(int id) { 
 
         Product p=em.find(Product.class, id);
         return p;

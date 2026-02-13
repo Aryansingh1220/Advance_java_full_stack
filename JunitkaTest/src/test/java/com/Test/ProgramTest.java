@@ -37,7 +37,7 @@ public class ProgramTest {
 		
 		
 		@ParameterizedTest
-		@CsvFileSource(resources="/junitTestExcel.csv",numLinesToSkip=1)
+		@CsvFileSource(resources="/unitTestExcel.csv",numLinesToSkip=1)
 		public void EvenOddTest(String input,String expected) {
 			Program p=new Program();
 			String actualres=p.isEvenOrOdd(Integer.parseInt(input));

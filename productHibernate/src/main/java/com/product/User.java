@@ -9,17 +9,17 @@ public class User {
 
 		Product pro = new Product();
 
-		
+		 
 
-		pro.setId(1);
- 
-		pro.setName("Pen");
+		pro.setId(10); 
+  
+		pro.setName("Pennnn");
 
-		pro.setPrice(10);
+		pro.setPrice(1009);
 
 		pro.setQuantity(5);
 		
-		
+		dao.insertProduct(pro);
 		
 
 	}

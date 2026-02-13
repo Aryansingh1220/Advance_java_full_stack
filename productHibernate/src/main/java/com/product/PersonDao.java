@@ -10,7 +10,7 @@ public class PersonDao {
 
         et.begin();
         em.persist(p); 
-        et.commit();
+        et.commit(); 
     }
 
     public Person findById(int id) {
