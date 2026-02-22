@@ -4,13 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
-	
+public class SalesEmployee {
 	@Id
 	private int id;
-	private String name;
-	private String email;
-	private long phone;
 	
 
 }

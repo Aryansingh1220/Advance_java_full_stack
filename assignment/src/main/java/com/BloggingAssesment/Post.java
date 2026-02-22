@@ -1,0 +1,55 @@
+package com.BloggingAssesment;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "post")
+public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String title;
+    private String content;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    @ManyToOne
+    private User author;
+
+    public Post() {}
+
+    public Post(String title, String content, User author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public Long getId() { 
+    	return id; 
+    }
+    public String getTitle() { 
+    	return title;
+    }
+    public String getContent() { 
+    	return content;
+    }
+    public User getAuthor() { 
+    	return author; 
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+        this.updatedAt = LocalDateTime.now();
+    }
+}
