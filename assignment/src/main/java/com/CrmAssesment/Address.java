@@ -1,27 +1,30 @@
 package com.CrmAssesment;
 
-import javax.persistence.Entity;
+import javax.persistence.Entity; 
 import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Address {
+
 	@Id
-	private int id;
-	private String street;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long address_id;
 	private String city;
 	private String state;
-	private int pinCode;
-	public int getId() {
-		return id;
+	private String pincode;
+	
+	public Address() {
+		this.address_id = address_id;
+		this.city = city;
+		this.state = state;
+		this.pincode = pincode;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public long getAddress_id() {
+		return address_id;
 	}
-	public String getStreet() {
-		return street;
-	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setAddress_id(long address_id) {
+		this.address_id = address_id;
 	}
 	public String getCity() {
 		return city;
@@ -35,18 +38,21 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPinCode() {
-		return pinCode;
+	public String getPincode() {
+		return pincode;
 	}
-	public void setPinCode(int pinCode) {
-		this.pinCode = pinCode;
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
 	}
-	@Override
-	public String toString() {
-		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", pinCode="
-				+ pinCode + "]";
+	public SalesEmployee getSalesemp() {
+		return salesemp;
 	}
-	
-	
 
+	public void setSalesemp(SalesEmployee salesemp) {
+		this.salesemp = salesemp;
+	}
+	@ManyToOne
+	private SalesEmployee salesemp;
+
+	
 }
