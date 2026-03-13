@@ -1,5 +1,10 @@
 package com.securityPractice.securityPracticeDbConnection.security;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,7 +24,12 @@ public class DbDetailsUserService implements UserDetailsService{
 		Account account=repository.findByUsername(username)
 				.orElseThrow(()->new RuntimeException("Username notFound"));
 		
-		return null;
+		List<SimpleGrantedAuthority> authorities=new ArrayList();
+		
+		authorities.add(new SimpleGrantedAuthority(account.getRole()));
+		
+		
+		return new User(account.getUsername(),account.getPassword(),null);
 	}
 	
 
